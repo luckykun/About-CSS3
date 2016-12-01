@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>立方体效果</title>
+    <style>
+        @keyframes rotate-frame {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            10% {
+                transform: rotateX(0deg) rotateY(180deg);
+            }
+            20% {
+                transform: rotateX(-180deg) rotateY(180deg);
+            }
+            30% {
+                transform: rotateX(-360deg) rotateY(180deg);
+            }
+            40% {
+                transform: rotateX(-360deg) rotateY(360deg);
+            }
+            50% {
+                transform: rotateX(-180deg) rotateY(360deg);
+            }
+            60% {
+                transform: rotateX(90deg) rotateY(180deg);
+            }
+            70% {
+                transform: rotateX(0) rotateY(180deg);
+            }
+            80% {
+                transform: rotateX(90deg) rotateY(90deg);
+            }
+            90% {
+                transform: rotateX(90deg) rotateY(0);
+            }
+            100% {
+                transform: rotateX(0) rotateY(0);
+            }
+        }
+
+        .my-container {
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .rect-wrap {
+            position: relative;
+            perspective: 1600px;
+        }
+
+        .container {
+            width: 800px;
+            height: 800px;
+            transform-style: preserve-3d;
+            transform-origin: 50% 50% 200px;
+            animation: rotate-frame 30s linear infinite;
+        }
+
+        .slide {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            text-align: center;
+            line-height: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9) inset;
+            background: pink;
+        }
+
+        .top {
+            left: 200px;
+            top: -200px;
+            background-size: 100%;
+            transform: rotateX(-90deg);
+            transform-origin: bottom;
+            /*background: url(./imgs/111.jpg) no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+
+        .bottom {
+            left: 200px;
+            bottom: -200px;
+            transform: rotateX(90deg);
+            transform-origin: top;
+            /*background: url(./imgs/444.jpg) no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+
+        .left {
+            left: -200px;
+            top: 200px;
+            transform: rotateY(90deg);
+            transform-origin: right;
+            /*background: url(./imgs/333.jpg) no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+
+        .right {
+            left: 600px;
+            top: 200px;
+            transform: rotateY(-90deg);
+            transform-origin: left;
+            /*background: url(./imgs/222.jpg) no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+
+        .front {
+            left: 200px;
+            top: 200px;
+            transform: translateZ(400px);
+            /*background: url(./imgs/555.jpg) no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+
+        .back {
+            left: 200px;
+            top: 200px;
+            transform: translateZ(0);
+            /*background: url(./imgs/666.jpg) no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="my-container">
+        <div class="rect-wrap">
+            <div class="container">
+                <div class="top slide">上</div>
+                <div class="bottom slide">下</div>
+                <div class="left slide">左</div>
+                <div class="right slide">右</div>
+                <div class="front slide">前</div>
+                <div class="back slide">后</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
